@@ -43,7 +43,9 @@ const indexGamesUser = (data) => {
   return $.ajax({
     url: app.host + '/games/',
     method: 'GET',
-    data,
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
   });
 };
 
