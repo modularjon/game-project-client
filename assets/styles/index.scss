@@ -1,2 +1,91 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/';
+
+$background-color: #fefefe;
+$font-color: #0c0c0c;
+
+body {
+  background-color: $background-color;
+  color: $font-color;
+}
+
+.board {
+  margin-left: 3vw;
+  margin-top: 3vw;
+}
+
+// .row > div {
+//   border: 2vw solid $font-color;
+// }
+
+.row-centered {
+  // use viewport width to expand content responsively in parallel with columns,
+  font-size: 8vw;
+  text-align: left;
+}
+
+// .no-gutter > [class*='col-'] {
+//   padding-left: 0;
+//   padding-right: 0;
+// }
+
+.col-centered {
+  display: inline-block;
+  height: 14vw;
+  text-align: center;
+}
+
+#cell-0 {
+  border-bottom: .5vw solid $font-color;
+  border-right: .5vw solid $font-color;
+}
+
+#cell-1 {
+  border-bottom: .5vw solid $font-color;
+  border-left: .5vw solid $font-color;
+  border-right: .5vw solid $font-color;
+}
+
+#cell-2 {
+  border-bottom: .5vw solid $font-color;
+  border-left: .5vw solid $font-color;
+}
+
+#cell-3 {
+  border-bottom: .5vw solid $font-color;
+  border-right: .5vw solid $font-color;
+  border-top: .5vw solid $font-color;
+}
+
+#cell-4 {
+  border-bottom: .5vw solid $font-color;
+  border-left: .5vw solid $font-color;
+  border-right: .5vw solid $font-color;
+  border-top: .5vw solid $font-color;
+}
+
+#cell-5 {
+  border-bottom: .5vw solid $font-color;
+  border-left: .5vw solid $font-color;
+  border-top: .5vw solid $font-color;
+}
+
+#cell-6 {
+  border-right: .5vw solid $font-color;
+  border-top: .5vw solid $font-color;
+}
+
+#cell-7 {
+  border-left: .5vw solid $font-color;
+  border-right: .5vw solid $font-color;
+  border-top: .5vw solid $font-color;
+}
+
+#cell-8 {
+  border-left: .5vw solid $font-color;
+  border-top: .5vw solid $font-color;
+}
+
+form {
+
+}
