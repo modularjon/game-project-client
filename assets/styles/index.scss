@@ -1,2 +1,29 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/';
+
+$background-color: #fefefe;
+$font-color: #0c0c0c;
+
+body {
+  background-color: $background-color;
+  color: $font-color;
+}
+
+.row > div {
+  border: 1px solid $font-color;
+}
+
+.row-centered {
+  // use viewport width to expand content responsively in parallel with columns,
+  font-size: 11vw;
+  text-align: center;
+}
+
+.col-centered {
+  display: inline-block;
+  float: none;
+  // inline-block space fix
+  margin-right: -4px;
+  // reset the text-align
+  text-align: center;
+}
