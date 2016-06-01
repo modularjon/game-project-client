@@ -39,9 +39,18 @@ const changePassword = (data) => {
   });
 };
 
+const indexGamesUser = (data) => {
+  return $.ajax({
+    url: app.host + '/games/',
+    method: 'GET',
+    data,
+  });
+};
+
 module.exports = {
   signUp,
   signIn,
   signOut,
   changePassword,
+  indexGamesUser,
 };
