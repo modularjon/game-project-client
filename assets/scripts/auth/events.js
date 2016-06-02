@@ -36,6 +36,13 @@ const onChangePassword = function(event) {
     .fail(ui.failure);
 };
 
+const onGetGamesIndex = function(event) {
+  event.preventDefault();
+  api.indexGamesUser()
+    .done(ui.success)
+    .fail(ui.failure);
+}
+
 let playerToken = 'o';
 
 const onPlayerMove = function(event) {
@@ -59,6 +66,7 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn);
   $('#sign-out').on('submit', onSignOut);
   $('#change-password').on('submit', onChangePassword);
+  $('#games-index').on('click', onGetGamesIndex);
   $('.col-xs-2').on('click', onPlayerMove);
 };
 
