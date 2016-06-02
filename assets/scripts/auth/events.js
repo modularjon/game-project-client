@@ -1,7 +1,7 @@
 'use strict';
 
 const getFormFields = require('../../../lib/get-form-fields');
-
+const model = require('../gamelogic/model');
 const api = require('./api');
 const ui = require('./ui');
 
