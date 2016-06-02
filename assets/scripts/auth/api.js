@@ -39,7 +39,7 @@ const changePassword = (data) => {
   });
 };
 
-const indexGamesUser = (data) => {
+const indexGamesUser = () => {
   return $.ajax({
     url: app.host + '/games/',
     method: 'GET',
