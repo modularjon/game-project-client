@@ -31,4 +31,11 @@ let playCount = 0;
 
 let gameOver = false;
 
-module.exports = currentGame;
+module.exports = {
+  currentGame,
+  currentUser,
+  playerX,
+  playerO,
+  playCount,
+  gameOver,
+};
