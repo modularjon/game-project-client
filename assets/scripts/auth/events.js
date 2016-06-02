@@ -1,8 +1,6 @@
 'use strict';
 
 const getFormFields = require('../../../lib/get-form-fields');
-const getDivValue = require('../get-div-value.js');
-const setDivValue = require('../set-div-value.js');
 
 const api = require('./api');
 const ui = require('./ui');
