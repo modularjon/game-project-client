@@ -36,14 +36,21 @@ const onChangePassword = function(event) {
     .fail(ui.failure);
 };
 
-const onGetGamesIndex = function(event) {
+const onGetIndexGames = function(event) {
   event.preventDefault();
-  api.indexGamesUser()
+  api.indexGames()
     .done(ui.success)
     .fail(ui.failure);
-}
+};
 
 let playerToken = 'o';
+
+const onStartGame = function(event) {
+  event.preventDefault();
+  api.createGame()
+    .done(ui.success)
+    .fail(ui.failure);
+};
 
 const onPlayerMove = function(event) {
   event.preventDefault();
@@ -66,7 +73,8 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn);
   $('#sign-out').on('submit', onSignOut);
   $('#change-password').on('submit', onChangePassword);
-  $('#games-index').on('click', onGetGamesIndex);
+  $('#index-games').on('click', onGetIndexGames);
+  $('#new-game').on('click', onStartGame);
   $('.col-xs-2').on('click', onPlayerMove);
 };
 
