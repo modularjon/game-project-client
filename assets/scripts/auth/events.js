@@ -1,6 +1,8 @@
 'use strict';
 
 const getFormFields = require('../../../lib/get-form-fields');
+const getDivValue = require('../get-div-value.js');
+const setDivValue = require('../set-div-value.js');
 
 const api = require('./api');
 const ui = require('./ui');
@@ -36,13 +38,22 @@ const onChangePassword = function(event) {
     .fail(ui.failure);
 };
 
+let playerToken = 'o'
+
 const onPlayerMove = function(event) {
   event.preventDefault();
-  let data = getDivValue(event.target);
-  api.gameUpdate(data)
-    .done(ui.playerMoveSuccess)
-    .fail(ui.failure);
-}
+  console.log(event);
+  console.log(event.target);
+  $(event.target).text(playerToken);
+  let data = {
+    index: /\d/.exec($(event.target).attr('id'))[0],
+    value: event.target.textContent
+  };
+  console.log(data);
+  // api.gameUpdate(data)
+  //   .done(ui.playerMoveSuccess)
+  //   .fail(ui.failure);
+};
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp);
