@@ -38,17 +38,18 @@ const onChangePassword = function(event) {
     .fail(ui.failure);
 };
 
-let playerToken = 'o'
+let playerToken = 'o';
 
 const onPlayerMove = function(event) {
   event.preventDefault();
-  console.log(event);
-  console.log(event.target);
+
   $(event.target).text(playerToken);
-  let data = {
-    index: /\d/.exec($(event.target).attr('id'))[0],
-    value: event.target.textContent
-  };
+
+  let data = {};
+
+  data.index = /\d/.exec($(event.target).attr('id'))[0];
+  data.value = event.target.textContent;
+
   console.log(data);
   // api.gameUpdate(data)
   //   .done(ui.playerMoveSuccess)
