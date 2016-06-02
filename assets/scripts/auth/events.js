@@ -36,6 +36,14 @@ const onChangePassword = function(event) {
     .fail(ui.failure);
 };
 
+const onPlayerMove = function(event) {
+  event.preventDefault();
+  let data = getDivValue(event.target);
+  api.gameUpdate(data)
+    .done(ui.playerMoveSuccess)
+    .fail(ui.failure);
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp);
   $('#sign-in').on('submit', onSignIn);
