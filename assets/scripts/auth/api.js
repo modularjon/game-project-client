@@ -39,7 +39,7 @@ const changePassword = (data) => {
   });
 };
 
-const indexGamesUser = () => {
+const indexGames = () => {
   return $.ajax({
     url: app.host + '/games/',
     method: 'GET',
@@ -49,7 +49,7 @@ const indexGamesUser = () => {
   });
 };
 
-const createGameUser = (data) => {
+const createGame = () => {
   return $.ajax({
     url: app.host + '/games/',
     method: 'POST',
@@ -64,5 +64,6 @@ module.exports = {
   signIn,
   signOut,
   changePassword,
-  indexGamesUser,
+  indexGames,
+  createGame,
 };
