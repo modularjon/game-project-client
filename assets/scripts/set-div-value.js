@@ -1,7 +1,7 @@
 'use strict';
 
-const setDivValue = function(data) {
-  console.log(data);
+const setDivValue = function(event) {
+  $(event).text('X');
 };
 
 module.exports = setDivValue;
