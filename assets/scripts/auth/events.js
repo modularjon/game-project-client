@@ -41,6 +41,7 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn);
   $('#sign-out').on('submit', onSignOut);
   $('#change-password').on('submit', onChangePassword);
+  $('.col-xs-2').on('click', onPlayerMove);
 };
 
 module.exports = {
