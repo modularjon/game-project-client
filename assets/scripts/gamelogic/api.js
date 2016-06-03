@@ -22,7 +22,19 @@ const createGame = () => {
   });
 };
 
+const updateGame = (data) => {
+  return $.ajax({
+    url: app.host + '/games/',
+    method: 'PATCH',
+    data,
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+  });
+};
+
 module.exports = {
   indexGames,
   createGame,
+  updateGame,
 };
