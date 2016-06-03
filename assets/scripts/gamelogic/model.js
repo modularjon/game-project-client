@@ -1,6 +1,6 @@
 'use strict';
 
-let gameBoard = [ , , , , , , , ];
+let gameBoard = [ , , , , , , , , ];
 
 let currentUser;
 

@@ -2,6 +2,7 @@
 
 const getFormFields = require('../../../lib/get-form-fields');
 const model = require('../gamelogic/model');
+const logic = require('../gamelogic/model')
 const api = require('./api');
 const ui = require('./ui');
 
@@ -43,8 +44,6 @@ const onGetIndexGames = function(event) {
     .fail(ui.failure);
 };
 
-let playerToken = 'o';
-
 const onStartGame = function(event) {
   event.preventDefault();
   api.createGame()
@@ -54,6 +53,8 @@ const onStartGame = function(event) {
 
 const onPlayerMove = function(event) {
   event.preventDefault();
+
+
 
   $(event.target).text(playerToken);
 
