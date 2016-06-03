@@ -62,43 +62,43 @@ const onPlayerMove = function(event) {
 
   let divID = /\d/.exec($(event.target).attr('id'));
 
-  if (gameBoard[divID]) {
+  if (gameBoard[divID] === '') {
 
-  }
+      gameBoard[divID] = playerToken;
 
-  gameBoard[divID] = playerToken;
+      $(event.target).text(gameBoard[divID]);
 
-  console.log(gameBoard);
+      if (playerToken === 'x') {
+        playerToken = 'o';
+      } else {
+        playerToken = 'x';
+      }
 
-  $(event.target).text(gameBoard[divID]);
+      playCount ++;
 
-  if (playerToken === 'x') {
-    playerToken = 'o';
+      let data = {
+        game: {
+          cell: {
+            index: divID,
+            value: gameBoard[divID]
+          },
+          over: false
+        }
+      };
+      console.log(data);
+
+      api.updateGame(data)
+        .done(ui.playerMoveSuccess)
+        .fail(ui.failure);
+
   } else {
-    playerToken = 'x';
+    console.log('uh oh');
   }
+  //
+  // if (playCount === 9) {
+  //   future function that displays a draw;
+  // }
 
-  playCount ++;
-
-  if (playCount === 9) {
-    future function that displays a draw;
-  }
-
-  let data = {
-    game: {
-      cell: {
-        index: divID,
-        value: gameBoard[divID]
-      },
-      over: false
-    }
-  };
-
-  console.log(data);
-
-  api.updateGame(data)
-    .done(ui.playerMoveSuccess)
-    .fail(ui.failure);
 };
 
 const addHandlers = () => {
