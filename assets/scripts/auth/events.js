@@ -8,7 +8,7 @@ const ui = require('./ui');
 
 let playerToken = 'x';
 
-let gameBoard = [ , , , , , , , , ];
+let gameBoard = ['','','','','','','','',''];
 
 const onSignUp = function(event) {
   event.preventDefault();
@@ -58,32 +58,35 @@ const onStartGame = function(event) {
 const onPlayerMove = function(event) {
   event.preventDefault();
 
-  console.log(playerToken);
+  let divID = /\d/.exec($(event.target).attr('id'));
+
+  gameBoard[divID] = playerToken;
+
   console.log(gameBoard);
 
-  console.log(gameBoard[/\d/.exec($(event.target).attr('id'))]);
-
-  gameBoard[/\d/.exec($(event.target).attr('id'))] = playerToken;
+  $(event.target).text(gameBoard[divID]);
 
   if (playerToken === 'x') {
     playerToken = 'o';
   } else {
     playerToken = 'x';
   }
-  
-  console.log(gameBoard);
 
-  $(event.target).text(playerToken);
-  //
-  // let data = {};
-  //
-  // data.index = /\d/.exec($(event.target).attr('id'))[0];
-  // data.value = event.target.textContent;
-  //
-  // console.log(data);
-  // api.gameUpdate(data)
-  //   .done(ui.playerMoveSuccess)
-  //   .fail(ui.failure);
+  let data = {
+    game: {
+      cell: {
+        index: divID,
+        value: gameBoard[divID]
+      },
+      over: false
+    }
+  };
+
+  console.log(data);
+
+  api.updateGame(data)
+    .done(ui.playerMoveSuccess)
+    .fail(ui.failure);
 };
 
 const addHandlers = () => {
