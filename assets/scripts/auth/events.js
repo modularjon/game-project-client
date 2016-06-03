@@ -10,6 +10,8 @@ let playerToken = 'x';
 
 let gameBoard = ['','','','','','','','',''];
 
+let playCount = 0;
+
 const onSignUp = function(event) {
   event.preventDefault();
   let data = getFormFields(event.target);
@@ -60,6 +62,10 @@ const onPlayerMove = function(event) {
 
   let divID = /\d/.exec($(event.target).attr('id'));
 
+  if (gameBoard[divID]) {
+
+  }
+
   gameBoard[divID] = playerToken;
 
   console.log(gameBoard);
@@ -70,6 +76,12 @@ const onPlayerMove = function(event) {
     playerToken = 'o';
   } else {
     playerToken = 'x';
+  }
+
+  playCount ++;
+
+  if (playCount === 9) {
+    future function that displays a draw;
   }
 
   let data = {
