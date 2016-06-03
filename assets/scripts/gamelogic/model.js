@@ -1,41 +1,22 @@
 'use strict';
 
-let currentGame = {
-  "game": {
-    "id": null,
-    "cells": ["","","","","","","","",""],
-    "over": false,
-    "player_x": {
-      "id": null,
-      "email": ""
-      },
-    "player_o": {
-      "id": null,
-      "email": ""
-    }
-  }
-};
+let gameBoard = [ , , , , , , , ];
 
-let currentUser = {
-  "user": {
-    "id": null,
-    "email": ""
-  }
-};
+let currentUser;
 
-let playerX = 'x';
-
-let playerO = 'o';
+// let playerX = 'x';
+//
+// let playerO = 'o';
 
 let playCount = 0;
 
 let gameOver = false;
 
 module.exports = {
-  currentGame,
+  gameBoard,
   currentUser,
-  playerX,
-  playerO,
+  // playerX,
+  // playerO,
   playCount,
   gameOver,
 };
