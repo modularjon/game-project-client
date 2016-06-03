@@ -1,10 +1,14 @@
 'use strict';
 
 const getFormFields = require('../../../lib/get-form-fields');
-const model = require('../gamelogic/model');
-const logic = require('../gamelogic/model')
+// const model = require('../gamelogic/model');
+// const logic = require('../gamelogic/model')
 const api = require('./api');
 const ui = require('./ui');
+
+let playerToken = 'x';
+
+let gameBoard = [ , , , , , , , , ];
 
 const onSignUp = function(event) {
   event.preventDefault();
@@ -54,16 +58,29 @@ const onStartGame = function(event) {
 const onPlayerMove = function(event) {
   event.preventDefault();
 
-  gameBoard[getDivID(event.target)] = playerToken;
+  console.log(playerToken);
+  console.log(gameBoard);
+
+  console.log(gameBoard[/\d/.exec($(event.target).attr('id'))]);
+
+  gameBoard[/\d/.exec($(event.target).attr('id'))] = playerToken;
+
+  if (playerToken === 'x') {
+    playerToken = 'o';
+  } else {
+    playerToken = 'x';
+  }
+  
+  console.log(gameBoard);
 
   $(event.target).text(playerToken);
-
-  let data = {};
-
-  data.index = /\d/.exec($(event.target).attr('id'))[0];
-  data.value = event.target.textContent;
-
-  console.log(data);
+  //
+  // let data = {};
+  //
+  // data.index = /\d/.exec($(event.target).attr('id'))[0];
+  // data.value = event.target.textContent;
+  //
+  // console.log(data);
   // api.gameUpdate(data)
   //   .done(ui.playerMoveSuccess)
   //   .fail(ui.failure);
