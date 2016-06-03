@@ -54,7 +54,7 @@ const onStartGame = function(event) {
 const onPlayerMove = function(event) {
   event.preventDefault();
 
-
+  gameBoard[getDivID(event.target)] = playerToken;
 
   $(event.target).text(playerToken);
 
