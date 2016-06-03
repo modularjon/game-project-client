@@ -13,6 +13,17 @@ const onGetIndexGames = function(event) {
 
 const onStartGame = function(event) {
   event.preventDefault();
+
+  // logic.playerToken = 'x';
+  //
+  // logic.gameBoard = ['', '', '', '', '', '', '', '', ''];
+  //
+  // logic.playCount = 0;
+  //
+  // logic.gameOver = false;
+  //
+  // logic.winner = '';
+
   api.createGame()
     .done(ui.success)
     .fail(ui.failure);
@@ -21,46 +32,46 @@ const onStartGame = function(event) {
 const onPlayerMove = function(event) {
   event.preventDefault();
 
-  let divID = /\d/.exec($(event.target).attr('id'));
+  let divID = /\d/.exec($(event.target).attr('id'))[0];
 
   if (logic.gameBoard[divID] === '') {
 
-      logic.gameBoard[divID] = logic.playerToken;
+    logic.gameBoard[divID] = logic.playerToken;
 
-      $(event.target).text(logic.gameBoard[divID]);
+    $(event.target).text(logic.gameBoard[divID]);
 
-      if (logic.playerToken === 'x') {
-        logic.playerToken = 'o';
-      } else {
-        logic.playerToken = 'x';
-      }
+    console.log(logic.gameBoard);
 
-      logic.playCount ++;
-      console.log(logic.playCount);
+    logic.playerToken = logic.switchPlayer(logic.playerToken);
 
+    logic.playCount++;
 
-      if (logic.playCount === 9) {
-        console.log('DRAW!');
-      }
+    console.log(logic.winner);
 
+    if (logic.whoIsWinner(logic.gameBoard) === 'x' || logic.whoIsWinner(logic.gameBoard) === 'o') {
+      logic.winner = logic.whoIsWinner(logic.gameBoard);
+    }
 
-      let data = {
-        game: {
-          cell: {
-            index: divID,
-            value: logic.gameBoard[divID]
-          },
-          over: false
-        }
-      };
-      console.log(data);
-
-      api.updateGame(data)
-        .done(ui.playerMoveSuccess)
-        .fail(ui.failure);
+    console.log(logic.winner);
+      // let data = {
+      //   game: {
+      //     cell: {
+      //       index: divID,
+      //       value: logic.gameBoard[divID]
+      //     },
+      //     over: false
+      //   }
+      // };
+      // console.log(data);
+      //
+      // api.updateGame(data)
+      //   .done(ui.playerMoveSuccess)
+      //   .fail(ui.failure);
 
   } else {
+
     console.log('uh oh');
+
   }
 
 };
