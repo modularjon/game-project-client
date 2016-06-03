@@ -2,12 +2,7 @@
 
 const api = require('./api');
 const ui = require('./ui');
-
-let playerToken = 'x';
-
-let gameBoard = ['','','','','','','','',''];
-
-let playCount = 0;
+const logic = require('./logic');
 
 const onGetIndexGames = function(event) {
   event.preventDefault();
@@ -28,23 +23,23 @@ const onPlayerMove = function(event) {
 
   let divID = /\d/.exec($(event.target).attr('id'));
 
-  if (gameBoard[divID] === '') {
+  if (logic.gameBoard[divID] === '') {
 
-      gameBoard[divID] = playerToken;
+      logic.gameBoard[divID] = logic.playerToken;
 
-      $(event.target).text(gameBoard[divID]);
+      $(event.target).text(logic.gameBoard[divID]);
 
-      if (playerToken === 'x') {
-        playerToken = 'o';
+      if (logic.playerToken === 'x') {
+        logic.playerToken = 'o';
       } else {
-        playerToken = 'x';
+        logic.playerToken = 'x';
       }
 
-      playCount ++;
-      console.log(playCount);
+      logic.playCount ++;
+      console.log(logic.playCount);
 
 
-      if (playCount === 9) {
+      if (logic.playCount === 9) {
         console.log('DRAW!');
       }
 
@@ -53,7 +48,7 @@ const onPlayerMove = function(event) {
         game: {
           cell: {
             index: divID,
-            value: gameBoard[divID]
+            value: logic.gameBoard[divID]
           },
           over: false
         }
