@@ -10,6 +10,8 @@ let winner = '';
 
 let gameOver = false;
 
+let currentUser;
+
 const switchPlayer = function(player) {
   if (player === 'x') {
     return 'o';
@@ -75,6 +77,7 @@ module.exports = {
   playCount,
   winner,
   gameOver,
+  currentUser,
   switchPlayer,
   whoIsWinner,
 };
