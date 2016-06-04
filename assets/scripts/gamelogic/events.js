@@ -32,6 +32,10 @@ const onStartGame = function(event) {
 const onPlayerMove = function(event) {
   event.preventDefault();
 
+  if (logic.gameOver) {
+    return;
+  }
+  
   let divID = /\d/.exec($(event.target).attr('id'))[0];
 
   if (logic.gameBoard[divID] === '') {
@@ -60,6 +64,7 @@ const onPlayerMove = function(event) {
       $('.game-message').text('The game is a draw.');
       logic.gameOver = true;
     }
+
     console.log(logic.gameOver);
     console.log(logic.winner);
       // let data = {
