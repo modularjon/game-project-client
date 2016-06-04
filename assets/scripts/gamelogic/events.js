@@ -54,12 +54,13 @@ const onPlayerMove = function(event) {
 
     if (logic.winner === 'x' || logic.winner === 'o') {
       $('.game-message').text(logic.winner + ' has won the game!');
+      logic.gameOver = true;
 
     } else if (logic.playCount === 9 && logic.winner === '') {
       $('.game-message').text('The game is a draw.');
-
+      logic.gameOver = true;
     }
-
+    console.log(logic.gameOver);
     console.log(logic.winner);
       // let data = {
       //   game: {
