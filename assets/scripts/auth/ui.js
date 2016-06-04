@@ -1,22 +1,21 @@
 'use strict';
 
 const app = require('../app.js');
+const logic = require('../gamelogic/logic.js');
 
 const success = (data) => {
-  if(data) {
-    console.log(data);
-  } else {
-    console.log("VANILLA FACE!");
-  }
+  $('.game-message').text('Success!');
 };
 
 const failure = (error) => {
-  console.error(error);
+  $('.game-message').text("Sorry, it didn\'t work, try again!");
 };
 
 const signInSuccess = function(data) {
   app.user = data.user;
+  logic.currentUser = data.user;
   console.log(app);
+  console.log(logic.currentUser);
 };
 
 const signOutSuccess = function() {
