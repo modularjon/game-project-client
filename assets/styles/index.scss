@@ -10,7 +10,7 @@ body {
 }
 
 form {
-
+  clear: both;
 }
 
 .board {
@@ -40,7 +40,9 @@ form {
 }
 
 .game-message {
-  font-size: 8vw;
+  font-size: 4vw;
+  height: 14vw;
+  padding-top: 4vw;
 }
 
 #cell-0 {
