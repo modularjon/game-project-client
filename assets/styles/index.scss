@@ -9,6 +9,10 @@ body {
   color: $font-color;
 }
 
+form {
+
+}
+
 .board {
   margin-left: 3vw;
   margin-top: 3vw;
@@ -33,6 +37,10 @@ body {
   display: inline-block;
   height: 14vw;
   text-align: center;
+}
+
+.game-message {
+  font-size: 8vw;
 }
 
 #cell-0 {
@@ -84,8 +92,4 @@ body {
 #cell-8 {
   border-left: .5vw solid $font-color;
   border-top: .5vw solid $font-color;
-}
-
-form {
-
 }
