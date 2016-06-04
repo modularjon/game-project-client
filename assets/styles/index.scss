@@ -14,6 +14,7 @@ button,
 legend,
 input {
   font-size: 2vw;
+  float: left;
 }
 
 .board {
@@ -33,14 +34,22 @@ input {
   text-align: center;
 }
 
+.game-info {
+  padding-left: 6vw;
+}
+
 .game-message {
-  font-size: 4vw;
+  font-size: 3vw;
   height: 14vw;
   padding-top: 4vw;
 }
 
 #signed-in {
-  font-size: 4vw;
+  font-size: 3vw;
+}
+
+#number-played {
+  font-size: 3vw;
 }
 
 #cell-0 {
