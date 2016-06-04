@@ -10,30 +10,38 @@
 
       <div class="board">
         <div class="row row-centered">
-          <div class="col-xs-3"></div>
           <div class="col-xs-2 col-centered" id="cell-0"></div>
           <div class="col-xs-2 col-centered" id="cell-1"></div>
           <div class="col-xs-2 col-centered" id="cell-2"></div>
-          <div class="col-xs-3"></div>
+          <div class="col-xs-6">
+            <button id="new-game">Start a new game!</button>
+          </div>
         </div>
         <div class="row row-centered">
-          <div class="col-xs-3"></div>
           <div class="col-xs-2 col-centered" id="cell-3"></div>
           <div class="col-xs-2 col-centered" id="cell-4"></div>
           <div class="col-xs-2 col-centered" id="cell-5"></div>
-          <div class="col-xs-3"></div>
+          <div class="col-xs-6">
+            <button id="index-games">Get game info!</button>
+          </div>
         </div>
         <div class="row row-centered">
-          <div class="col-xs-3"></div>
           <div class="col-xs-2 col-centered" id="cell-6"></div>
           <div class="col-xs-2 col-centered" id="cell-7"></div>
           <div class="col-xs-2 col-centered" id="cell-8"></div>
-          <div class="col-xs-3"></div>
+          <div class="col-xs-6">
+            <form id="find-game">
+              <fieldset>
+                <legend>Recall a game!</legend>
+                <input type="text" name="id" placeholder="Game Index!">
+                <input type="submit" name="submit" value="Get it!">
+              </fieldset>
+            </form>
+          </div>
         </div>
         <div class="row row-centered">
-          <div class="col-xs-3"></div>
           <div class="col-xs-6 col-centered game-message">Click to start!</div>
-          <div class="col-xs-3"></div>
+          <div class="col-xs-6"></div>
         </div>
       </div>
 
@@ -72,17 +80,10 @@
         </fieldset>
       </form>
 
-      <button id="index-games">Get game info!</button>
 
-      <button id="new-game">Start a new game!</button>
 
-      <form id="find-game">
-        <fieldset>
-          <legend>Recall a game!</legend>
-          <input type="text" name="id" placeholder="Game Index!">
-          <input type="submit" name="submit" value="Get it!">
-        </fieldset>
-      </form>
+
+
 
     </body>
 </html>

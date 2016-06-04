@@ -9,6 +9,13 @@ body {
   color: $font-color;
 }
 
+form,
+button,
+legend,
+input {
+  font-size: 2vw;
+}
+
 .board {
   margin-left: 3vw;
   margin-top: 3vw;
