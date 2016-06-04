@@ -14,8 +14,10 @@ const failure = (error) => {
 const signInSuccess = function(data) {
   app.user = data.user;
   logic.currentUser = data.user;
-  console.log(app);
-  console.log(logic.currentUser);
+
+  if (logic.currentUser) {
+    $('#sign-in').hide();
+  }
 };
 
 const signOutSuccess = function() {
