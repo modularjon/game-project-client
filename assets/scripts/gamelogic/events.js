@@ -32,10 +32,12 @@ const onStartGame = function(event) {
 const onPlayerMove = function(event) {
   event.preventDefault();
 
-  if (logic.gameOver) {
+  if (logic.gameOver || !logic.currentUser) {
     return;
   }
-  
+
+
+
   let divID = /\d/.exec($(event.target).attr('id'))[0];
 
   if (logic.gameBoard[divID] === '') {
@@ -47,6 +49,8 @@ const onPlayerMove = function(event) {
     console.log(logic.gameBoard);
 
     logic.playerToken = logic.switchPlayer(logic.playerToken);
+
+    $('.game-message').text(logic.playerToken + "\'s turn!");
 
     logic.playCount++;
 
