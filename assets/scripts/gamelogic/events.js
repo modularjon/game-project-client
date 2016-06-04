@@ -7,7 +7,7 @@ const logic = require('./logic');
 const onGetIndexGames = function(event) {
   event.preventDefault();
   api.indexGames()
-    .done(ui.success)
+    .done(ui.indexGamesSuccess)
     .fail(ui.failure);
 };
 
