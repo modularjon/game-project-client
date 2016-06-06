@@ -1,8 +1,10 @@
 'use strict';
 
+const getFormFields = require('../../../lib/get-form-fields');
 const api = require('./api');
 const ui = require('./ui');
 const logic = require('./logic');
+const app = require('../app');
 
 const onGetIndexGames = function(event) {
   event.preventDefault();
@@ -11,28 +13,35 @@ const onGetIndexGames = function(event) {
     .fail(ui.failure);
 };
 
-const onStartGame = function(event) {
+const onCreateGame = function(event) {
   event.preventDefault();
 
-  // logic.playerToken = 'x';
-  //
-  // logic.gameBoard = ['', '', '', '', '', '', '', '', ''];
-  //
-  // logic.playCount = 0;
-  //
-  // logic.gameOver = false;
-  //
-  // logic.winner = '';
+  logic.gameOver = false;
+  logic.playerToken = 'x';
+  logic.gameBoard = ['', '', '', '', '', '', '', '', ''];
+  logic.playCount = 0;
+  logic.winner = '';
 
   api.createGame()
-    .done(ui.success)
+    .done(ui.createGameSuccess)
     .fail(ui.failure);
 };
+
+// Retreiving previous games to be finished in future
+// const onGetPreviousGame = function(event) {
+//   event.preventDefault();
+//
+//   let data = $('#find-game-text').text();
+//
+//   api.getPreviousGame(data)
+//     .done(ui.getPreviousGameSuccess)
+//     .fail(ui.failure);
+// };
 
 const onPlayerMove = function(event) {
   event.preventDefault();
 
-  if (logic.gameOver || !logic.currentUser) {
+  if (logic.gameOver || !logic.currentUser || !app.game) {
     return;
   }
 
@@ -46,15 +55,11 @@ const onPlayerMove = function(event) {
 
     $(event.target).text(logic.gameBoard[divID]);
 
-    console.log(logic.gameBoard);
-
     logic.playerToken = logic.switchPlayer(logic.playerToken);
 
     $('.game-message').text(logic.playerToken + "\'s turn!");
 
     logic.playCount++;
-
-    console.log(logic.winner);
 
     if (logic.whoIsWinner(logic.gameBoard) === 'x' || logic.whoIsWinner(logic.gameBoard) === 'o') {
       logic.winner = logic.whoIsWinner(logic.gameBoard);
@@ -69,35 +74,28 @@ const onPlayerMove = function(event) {
       logic.gameOver = true;
     }
 
-    console.log(logic.gameOver);
-    console.log(logic.winner);
-      // let data = {
-      //   game: {
-      //     cell: {
-      //       index: divID,
-      //       value: logic.gameBoard[divID]
-      //     },
-      //     over: false
-      //   }
-      // };
-      // console.log(data);
-      //
-      // api.updateGame(data)
-      //   .done(ui.playerMoveSuccess)
-      //   .fail(ui.failure);
+    let data = {
+      "game": {
+        "cell": {
+          "index": divID,
+          "value": $(event.target).text()
+        },
+        "over": logic.gameOver,
+      }
+    };
 
-  } else {
-
-    console.log('uh oh');
+    api.updateGame(data)
+      .done(ui.updateGameSuccess)
+      .fail(ui.failure);
 
   }
-
 };
 
 const addHandlers = () => {
   $('#index-games').on('click', onGetIndexGames);
-  $('#new-game').on('click', onStartGame);
+  $('#new-game').on('click', onCreateGame);
   $('.col-xs-2').on('click', onPlayerMove);
+  // $('#find-game').on('submit', onGetPreviousGame);
 };
 
 module.exports = {

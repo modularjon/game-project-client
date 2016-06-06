@@ -10,6 +10,7 @@ let winner = '';
 
 let gameOver = false;
 
+// for future possible multiplayer use
 let currentUser;
 
 const switchPlayer = function(player) {

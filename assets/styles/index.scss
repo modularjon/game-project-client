@@ -1,6 +1,5 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/';
-
 $background-color: #fefefe;
 $font-color: #0c0c0c;
 
@@ -9,10 +8,10 @@ body {
   color: $font-color;
 }
 
-form,
 button,
-legend,
-input {
+form,
+input,
+legend {
   font-size: 2vw;
   float: left;
 }
@@ -53,52 +52,52 @@ input {
 }
 
 #cell-0 {
-  border-bottom: .5vw solid $font-color;
-  border-right: .5vw solid $font-color;
+  border-bottom: 0.5vw solid $font-color;
+  border-right: 0.5vw solid $font-color;
 }
 
 #cell-1 {
-  border-bottom: .5vw solid $font-color;
-  border-left: .5vw solid $font-color;
-  border-right: .5vw solid $font-color;
+  border-bottom: 0.5vw solid $font-color;
+  border-left: 0.5vw solid $font-color;
+  border-right: 0.5vw solid $font-color;
 }
 
 #cell-2 {
-  border-bottom: .5vw solid $font-color;
-  border-left: .5vw solid $font-color;
+  border-bottom: 0.5vw solid $font-color;
+  border-left: 0.5vw solid $font-color;
 }
 
 #cell-3 {
-  border-bottom: .5vw solid $font-color;
-  border-right: .5vw solid $font-color;
-  border-top: .5vw solid $font-color;
+  border-bottom: 0.5vw solid $font-color;
+  border-right: 0.5vw solid $font-color;
+  border-top: 0.5vw solid $font-color;
 }
 
 #cell-4 {
-  border-bottom: .5vw solid $font-color;
-  border-left: .5vw solid $font-color;
-  border-right: .5vw solid $font-color;
-  border-top: .5vw solid $font-color;
+  border-bottom: 0.5vw solid $font-color;
+  border-left: 0.5vw solid $font-color;
+  border-right: 0.5vw solid $font-color;
+  border-top: 0.5vw solid $font-color;
 }
 
 #cell-5 {
-  border-bottom: .5vw solid $font-color;
-  border-left: .5vw solid $font-color;
-  border-top: .5vw solid $font-color;
+  border-bottom: 0.5vw solid $font-color;
+  border-left: 0.5vw solid $font-color;
+  border-top: 0.5vw solid $font-color;
 }
 
 #cell-6 {
-  border-right: .5vw solid $font-color;
-  border-top: .5vw solid $font-color;
+  border-right: 0.5vw solid $font-color;
+  border-top: 0.5vw solid $font-color;
 }
 
 #cell-7 {
-  border-left: .5vw solid $font-color;
-  border-right: .5vw solid $font-color;
-  border-top: .5vw solid $font-color;
+  border-left: 0.5vw solid $font-color;
+  border-right: 0.5vw solid $font-color;
+  border-top: 0.5vw solid $font-color;
 }
 
 #cell-8 {
-  border-left: .5vw solid $font-color;
-  border-top: .5vw solid $font-color;
+  border-left: 0.5vw solid $font-color;
+  border-top: 0.5vw solid $font-color;
 }

@@ -22,9 +22,19 @@ const createGame = () => {
   });
 };
 
+const getPreviousGame = (data) => {
+  return $.ajax({
+    url: app.host + '/games/' + data,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+  });
+};
+
 const updateGame = (data) => {
   return $.ajax({
-    url: app.host + '/games/',
+    url: app.host + '/games/' + app.game.id,
     method: 'PATCH',
     data,
     headers: {
@@ -36,5 +46,6 @@ const updateGame = (data) => {
 module.exports = {
   indexGames,
   createGame,
+  getPreviousGame,
   updateGame,
 };

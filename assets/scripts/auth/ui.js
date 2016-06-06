@@ -11,11 +11,15 @@ const failure = (error) => {
   $('.game-message').text("Sorry, it didn\'t work, try again!");
 };
 
+const signUpSuccess = function() {
+  $('.game-message').text("Signed up!");
+  $('form').trigger('reset');
+};
+
 const signInSuccess = function(data) {
   app.user = data.user;
   logic.currentUser = data.user;
 
-  console.log(logic.currentUser);
   if (logic.currentUser) {
     $('#sign-up').hide();
     $('#sign-in').hide();
@@ -25,7 +29,8 @@ const signInSuccess = function(data) {
     $('#index-games').show();
     $('#find-game').show();
     $('#signed-in').text('Signed in as: ' + logic.currentUser.email);
-    $('.game-message').text('Click to start! x goes first!');
+    $('.game-message').text('Start a new game or recall an old one!');
+    $('form').trigger('reset');
   }
 };
 
@@ -42,6 +47,8 @@ const signOutSuccess = function() {
     $('#index-games').hide();
     $('#find-game').hide();
     $('#signed-in').text('');
+    $('#number-played').text('');
+    $('.col-xs-2').text('');
     $('.game-message').text('Sign in to start!');
   }
 };
@@ -49,6 +56,7 @@ const signOutSuccess = function() {
 module.exports = {
   failure,
   success,
+  signUpSuccess,
   signInSuccess,
   signOutSuccess,
 };
